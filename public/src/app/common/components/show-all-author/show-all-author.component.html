@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 text-center">
+      <hr>
+      <button class="btn btn-success center-block" [routerLink]="['/create-author']">Add a quotable author</button>
+      <br><br>
+      <h3>We have quotes by:</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Actions Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of AllAuthors">
+            <td>{{a.name}}</td>
+            <td><button class="btn btn-danger" (click)="deleteObjectByIdButton(a._id)">Delete</button>
+              <button class="btn btn-success" [routerLink]="['/view-author/', a._id]">View Quotes</button>
+              <br><button class="btn btn-primary" [routerLink]="['/edit-author/', a._id]">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

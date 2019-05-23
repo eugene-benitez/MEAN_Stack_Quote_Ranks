@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 text-center">
+      <hr>
+      <button class="btn btn-success center-block" [routerLink]="['/create-quote/', thisAuthor._id]">Add a
+        quote</button>
+      <br><br>
+      <h3>Quotes by {{thisAuthor.name}}:</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Quote</th>
+            <th>Votes</th>
+            <th>Actions Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of thisAuthor.quotes">
+            <td>{{a.quote}}</td>
+            <td>{{a.votes}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="voteUpButton(thisAuthor._id, a._id)">
+                Vote Up
+              </button>
+              <button class="btn btn-danger" (click)="removeQuoteButton(thisAuthor._id, a._id)">
+                Delete
+              </button>
+              <button class="btn btn-success" (click)="voteDownButton(thisAuthor._id, a._id)">
+                Vote Down
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 text-center">
+      <h1>{{this.thisAuthor.name}}</h1>
+      <br>
+      <h2>{{authorError}}</h2>
+      <form (submit)="onEdit()">
+        <label for="">
+          <h2>Edit This Author's Name:</h2>
+        </label>
+        <input required minlength="3" type="text" class="form-control" name="editAuthor.name"
+          [(ngModel)]="editAuthor.name" id="" aria-describedby="helpId" placeholder="{{thisAuthor.name}}"
+          #name="ngModel">
+        <p>{{ name.errors | json }}
+          {{ name.valid | json }}</p>
+        <br>
+        <button class="btn btn-danger" [routerLink]="['']">Cancel</button>
+        <button class="float-right btn btn-danger" type="submit">Edit!</button>
+      </form>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
